@@ -47,16 +47,9 @@ tasks.named("run", JavaExec) {
 	mainClass.set("com.gauntletprep.CgPrepTrackerRunner")
 }
 
-java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(11)
-	}
-}
-
-tasks.named("run", JavaExec).configure {
-	javaLauncher = javaToolchains.launcherFor {
-		languageVersion = JavaLanguageVersion.of(11)
-	}
+tasks.withType(JavaCompile).configureEach {
+    options.release.set(11)   // produces Java 11 bytecode using ANY newer JDK
+    options.encoding = "UTF-8"
 }
 
 tasks.register('shadowJar', Jar) {
