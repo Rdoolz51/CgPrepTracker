@@ -44,7 +44,7 @@ tasks.register('run', JavaExec) {
 }
 
 tasks.named("run", JavaExec) {
-	mainClass.set("com.gauntletprep.CgPrepTrackerRunner")
+	mainClass.set("com.gauntletprep.CgPrepTrackerPlugin")
 }
 
 tasks.withType(JavaCompile).configureEach {
